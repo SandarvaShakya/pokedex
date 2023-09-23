@@ -1,0 +1,58 @@
+:root {
+    --color-blue-1: #457B9D;
+    --color-blue-2: #7EC4CF;
+    --color-blue-3: #2E5266;
+    --color-purple-1: #9CADCE;
+    --color-white-1: #F1FFC4;
+
+    --color-red: #FF5154; 
+
+    --color-bg: #222725;
+
+    --color-white: #FFF;
+    --color-black: #000;
+
+    --ff-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ff-secondary: 'monospace';
+
+    --fw-light: 100;
+    --fw-medium: 400;
+    --fw-bold: 500;
+    --fw-extra-bold: 700;
+    --fw-bolder: 900;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media (min-width: 720px) {
+    .container {
+        width: 75%;
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 75%;
+        max-width: 1200px;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+@media (min-width: 720px) {
+    .flex-d {
+        display: flex;
+    }
+}
+
+.flex--center,
+.flex-d--center {
+    justify-content: center;
+    align-items: center;
+}

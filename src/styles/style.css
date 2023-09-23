@@ -1,0 +1,106 @@
+@import url('./globals.css');
+@import url('./resets.css');
+
+/*---------- GENERATION BUTTONS -----------*/
+.generation {
+    text-align: center;
+}
+
+.generation__title{
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: var(--fw-medium);
+}
+
+.generation__item {
+    border-top: 1px solid var(--color-white);
+    border-bottom: 1px solid var(--color-white);
+    border-left: 1px solid var(--color-white);
+    padding: 0.65rem;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+}
+
+.generation__item:hover{
+    background-color: var(--color-blue-1);
+}
+
+.generation__item:first-of-type {
+    border-radius: 8px 0 0 8px;
+}
+
+.generation__item:last-of-type {
+    border-radius: 0 8px 8px 0;
+    border-right: 1px solid var(--color-white);
+}
+
+/*---------- CARD ----------*/
+
+.card-group{
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+}
+
+.card{
+    background-color: var(--color-blue-1);
+    padding: 1rem 0;
+    transition: all 0.3s ease-in-out;
+    gap: 12px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.card__img-wrapper {
+    width: 100%;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color-red);
+}
+
+.btn{
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color-bg);
+    color: white;
+    cursor: pointer;
+}
+
+.button-group{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card__content{
+    padding: 1rem;
+}
+
+.card__main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*---------- POKEMON TYPE ---------- */
+.type-group{
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 8px;
+}
+
+.type {
+    padding: 0.25rem 0.55rem;
+    background-color: var(--color-blue-3);
+    color: white;
+    border-radius: 8px;
+}
+
+.type:hover{
+    background-color: var(--color-white);
+    color: black;
+}
