@@ -8,6 +8,8 @@ export interface PokemonSpecies {
 export type PokemonContextType = {
     pokemons: PokemonSpecies[]
     setPokemons: Dispatch<React.SetStateAction<PokemonSpecies[]>>
+    activeGeneration: number
+    setActiveGeneration: Dispatch<React.SetStateAction<number>>
 }
 
 export interface Pokemon {

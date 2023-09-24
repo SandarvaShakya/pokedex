@@ -6,9 +6,7 @@ import classNames from 'classnames';
 import React, { useContext, useEffect, useState } from 'react'
 
 const Generations = () => {
-    const { setPokemons } = useContext(PokemonContext)
-
-    const [activeGeneration, setActiveGeneration] = useState(1)
+    const { setPokemons, activeGeneration, setActiveGeneration } = useContext(PokemonContext)
 
     /**
      * This function fetches all the pokemons from the selected generation
@@ -18,6 +16,7 @@ const Generations = () => {
         try {
             const { data: { pokemon_species } } = await axios.get(`${generationBaseURI}/${generationId}`)
             setPokemons(pokemon_species)
+            setActiveGeneration(generationId)
         } catch (error) {
             console.error('Error fetching data:', error);
             throw error;

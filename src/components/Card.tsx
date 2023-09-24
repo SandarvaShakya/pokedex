@@ -1,13 +1,16 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 import { pokemonBaseURI } from "@/constants/constants";
 import { Pokemon, PokemonSpecies } from "@/interfaces/Pokemon";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import PokemonType from "./PokemonType";
+import Link from "next/link";
+import { capitalize } from "@/helpers/utils";
 
-const Card = ({name, url} : PokemonSpecies) => {
+const Card = ({ name } : PokemonSpecies) => {
     const [pokemon, setPokemon] = useState<Pokemon>()
 
-    const fetchPokemon = async (pokemonUrl: string) => {
+    const fetchPokemon = async () => {
         try{
             const { data } = await axios.get(`${pokemonBaseURI}/${name}`)
             setPokemon(data)
@@ -17,12 +20,8 @@ const Card = ({name, url} : PokemonSpecies) => {
     }
 
     useEffect(() => {
-        fetchPokemon(url)
+        fetchPokemon()
     }, [])
-
-    const capitalize = (pokemonName : string | undefined) => {
-        if(pokemonName) return pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)
-    }
 
     return (
         <div className="card">
@@ -41,8 +40,8 @@ const Card = ({name, url} : PokemonSpecies) => {
                     </div>
                 </div>
                 <div className="button-group">
-                    <button className="btn">Details</button>
-                    <button className="btn btn--add-pokemon">Add Pokemon</button>
+                    <Link href={`/details/${name}`} className="btn">Details</Link>
+                    <a className="btn btn--add-pokemon">Add Pokemon</a>
                 </div>
             </div>
         </div>
