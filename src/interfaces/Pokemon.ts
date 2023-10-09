@@ -13,13 +13,45 @@ export type PokemonContextType = {
 }
 
 export interface Pokemon {
-    name: string
+    name: string,
+    abilities: {
+        ability: Ability
+    }[]
     sprites: {
-        front_default: string
-        front_shiny: string
+        other: {
+            dream_world: {
+                front_default: string
+            }
+            home: {
+                front_default: string
+            }
+            "official-artwork": {
+                front_default: string
+            }
+        }
     }
-    moves: []
+    moves: {
+        move: Move
+        version_group_details: VersionGroupDetail[]
+    }[]
     types: Type[]
+}
+
+export interface Move {
+    name: string
+    url: string
+}
+
+export interface VersionGroupDetail {
+    level_learned_at: number
+    move_learn_method: {
+        name: string
+    }
+}
+
+export interface Ability {
+    name: string
+    url: string
 }
 
 export interface Type {

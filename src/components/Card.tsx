@@ -10,6 +10,9 @@ import { useGetPokemons } from "@/queries/pokemonQueries";
 const Card = ({ name }: PokemonSpecies) => {
 	const { isLoading, data } = useGetPokemons(name);
 	const pokemon: Pokemon = data?.data;
+	const pokemonImage = pokemon?.sprites.other.dream_world.front_default
+		? pokemon?.sprites.other.dream_world.front_default
+		: pokemon?.sprites.other["official-artwork"].front_default;
 
 	return (
 		<div className="card">
@@ -17,11 +20,7 @@ const Card = ({ name }: PokemonSpecies) => {
 				{isLoading ? (
 					"Loading..."
 				) : (
-					<Image
-						src={pokemon?.sprites.front_default || ""}
-						alt={pokemon?.name || ""}
-						fill
-					/>
+					<Image src={pokemonImage || ""} alt={pokemon?.name || ""} fill />
 				)}
 			</div>
 			<div className="card__content">

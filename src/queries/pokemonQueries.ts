@@ -13,3 +13,12 @@ export const useGetGenerations = (id: number) => {
         return await axios.get(`${generationBaseURI}/${id}`)
     })
 }
+
+export const useGetAbility = (name: string, url: string) => {
+    const { isLoading, data } = useQuery(['ability', name], async () => {
+        return await axios.get(url)
+    })
+    const ability = data?.data
+    const isAbilityLoading = isLoading
+    return { isAbilityLoading, ability }
+}
