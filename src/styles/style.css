@@ -135,6 +135,14 @@
 	position: relative !important;
 }
 
+.pokemon-about {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 25px;
+	padding: 1rem 0;
+}
+
 .back-btn {
 	display: block;
 	width: 200px;
@@ -144,4 +152,23 @@
 	border-radius: 8px;
 	background-color: var(--color-blue-1);
 	color: var(--color-white);
+}
+
+@media (min-width: 744px) {
+	.detail__img-wrapper {
+		margin: 0;
+	}
+
+	.pokemon-about {
+		display: flex;
+		flex-grow: 1;
+		align-items: start;
+		justify-content: center;
+		padding: 0;
+	}
+
+	.detail-content {
+		display: flex;
+		gap: 25px;
+	}
 }

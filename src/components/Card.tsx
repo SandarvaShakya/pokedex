@@ -6,6 +6,7 @@ import { Pokemon, PokemonSpecies } from "@/interfaces/Pokemon";
 
 import PokemonType from "./PokemonType";
 import { useGetPokemons } from "@/queries/pokemonQueries";
+import { colors } from "@/constants/colors";
 
 const Card = ({ name }: PokemonSpecies) => {
 	const { isLoading, data } = useGetPokemons(name);
@@ -14,9 +15,17 @@ const Card = ({ name }: PokemonSpecies) => {
 		? pokemon?.sprites.other.dream_world.front_default
 		: pokemon?.sprites.other["official-artwork"].front_default;
 
+	const type = (pokemon?.types[0].type.name as keyof typeof colors) || "normal";
+	const backgroundColor = {
+		backgroundColor: colors[type],
+	};
+
 	return (
 		<div className="card">
-			<div className="card__img-wrapper flex flex--center">
+			<div
+				className="card__img-wrapper flex flex--center"
+				style={backgroundColor}
+			>
 				{isLoading ? (
 					"Loading..."
 				) : (
